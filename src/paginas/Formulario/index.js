@@ -12,7 +12,7 @@ const Formulario = ({novoPost, listaPost, aoAtualizarPost}) => {
         <Form
         aoNovoPostCadastrado = {item => novoPost(item)}
         posts ={listaPost}
-        atualizar={item => aoAtualizarPost(item)}
+        aoNovoPostAtualizado={item => aoAtualizarPost(item)}
         />
     )
 }

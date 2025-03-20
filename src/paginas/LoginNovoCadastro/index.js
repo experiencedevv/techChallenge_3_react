@@ -28,7 +28,7 @@ const Login = ({aoNovoLogin}) => {
         })
 
         if(cadastro !== undefined){
-            window.location.pathname = "/"
+            window.location.pathname = "/post/professor"
         }
         // fazer caso nao possua cadastro
 
@@ -56,7 +56,7 @@ const Login = ({aoNovoLogin}) => {
     return(
     <body>
         <div>
-            <h1>{window.location.pathname === "/novoCadastro"? "Novo cadastro de professor" :"Login Professor"}</h1>
+            <h1>{window.location.pathname === "/novoCadastro"? "Novo cadastro de professor" :"Login"}</h1>
             <form onSubmit={window.location.pathname === "/novoCadastro"? aoCadastrar : aoLogar}>
                 <CampoForm placeholder="Nome" aoAlterado={(item) =>setLogin(item)}/>
                 <br></br>
@@ -66,12 +66,12 @@ const Login = ({aoNovoLogin}) => {
                 <button>{window.location.pathname === "/novoCadastro"? "Cadastrar" :"Entrar"}</button>
             </form>
 
-            {window.location.pathname === "/login"?
+            {window.location.pathname === "/"?
                 <LinkPagina to="/novoCadastro">Fazer meu cadastro</LinkPagina>
                 :""}
 
-            {window.location.pathname === "/login"?
-                <LinkPagina to="/">Acessar como aluno</LinkPagina>
+            {window.location.pathname === "/"?
+                <LinkPagina to="/post/aluno">Acessar como aluno</LinkPagina>
                 :""}
 
             

@@ -19,7 +19,7 @@ const Menu = () =>{
                         Home
                     </li>
                     <li>
-                        <Link to={"/login"}>
+                        <Link to={"/"}>
                        <img 
                        src={iconeUser}
                        alt="Icone de usuário menu"/> Sair

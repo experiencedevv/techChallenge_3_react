@@ -40,44 +40,43 @@ function App() {
     }).then((response)=>{console.log(`Inserido com sucesso e login senha`)})
   }
 
-  function deletarPost(post){
-    axios.delete(`http://localhost:3001/posts/${post.id}`)
-    .then((response)=>{console.log("post deletado", response)})}
+  // API deletar post
+  function deletarPost(teste){
+    axios.delete(`http://localhost:3001/posts/${teste.id}`)
+    .then(()=>{console.log("post deletado")})
+  }
+
+  // API Editar post
+  function atualizarPost(post){
+    console.log(post)
+    axios.put(`http://localhost:3001/posts/${post.id}`,
+    { id: post.id,
+      titulo: post.titulo,
+      descricao: post.descricao,
+      autor: post.autor
+    }).then((response) => console.log(response.data))
+  }
+
   
 
 
-
-  const aoPostAtualizado = (post) =>{
-    const postAtualizar = posts.filter((item) => {
-      return(item.id==post.id)
-    })
-
-    postAtualizar.titulo = post.titulo
-    postAtualizar.descricao = post.descricao
-    postAtualizar.autor = post.autor
-
-    console.log(postAtualizar)
-
-
-    
-  }
 
 
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<PaginaPadrao/>}>
-          <Route path="/" element={<Inicio listaPost={posts} />} />
-          <Route path="/professor" element={<Inicio listaPost={posts}/>} />
-          <Route path="/formulario" element={<Formulario listaPost={posts} novoPost={item => enviarPost(item)}  />} />
-          <Route path="/formulario/:id" element={<Formulario listaPost={posts} aoAtualizarPost={item => aoPostAtualizado(item)} />} />
+        <Route path="/post" element={<PaginaPadrao/>}>
+          <Route path="/post/aluno" element={<Inicio listaPost={posts} />} />
+          <Route path="/post/professor" element={<Inicio listaPost={posts} aoClicar={item => deletarPost(item)}/>} />
+          <Route path="/post/formulario" element={<Formulario listaPost={posts} novoPost={item => enviarPost(item)}  />} />
+          <Route path="/post/formulario/:id" element={<Formulario listaPost={posts} aoAtualizarPost={item => atualizarPost(item)} />} />
           <Route path="/post/:id" element={<Post listaPost={posts}/>} />
         
 
 
         </Route>
-        <Route path="/login" element={<Login />}/>
+        <Route path="/" element={<Login />}/>
         <Route path="/novoCadastro" element={<Login aoNovoLogin={item => enviarLogin(item)}/>}/>
         <Route path="*" element="Página não encontrada"/>
       </Routes>

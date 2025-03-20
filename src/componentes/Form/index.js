@@ -7,7 +7,7 @@ import axios from "axios"
 
 
 
-const Form = ({aoNovoPostCadastrado, posts, atualizar}) =>{
+const Form = ({aoNovoPostCadastrado, posts, aoNovoPostAtualizado}) =>{
 
 
 
@@ -33,15 +33,14 @@ const Form = ({aoNovoPostCadastrado, posts, atualizar}) =>{
         setTitulo(" ")
         setAutor(" ")
         setDescricao(" ")
-        
-
 
     }
 
-    /*const aoAtualizar = (evento) =>{
+    function AoAtualizar(evento){
         evento.preventDefault()
-        atualizar({
-            id: 1,
+
+        aoNovoPostAtualizado({
+            id: parametro.id,
             titulo: titulo,
             descricao: descricao,
             autor: autor
@@ -50,17 +49,18 @@ const Form = ({aoNovoPostCadastrado, posts, atualizar}) =>{
         setTitulo(" ")
         setAutor(" ")
         setDescricao(" ")
-        
+
+        window.location.pathname = "/post/professor"
 
 
-    }*/
+    }
 
 
 
 
 
     return(
-        <form onSubmit={aoSalvar}>
+        <form onSubmit={window.location.pathname !== "/post/formulario"? AoAtualizar: aoSalvar}>
             <label> Titulo</label>
             <CampoForm 
                 valor={titulo}

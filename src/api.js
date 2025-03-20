@@ -6,3 +6,8 @@ const api = axios.create({
 })
 
 export default api
+
+
+ export function deletarPost(teste){
+    axios.delete(`http://localhost:3001/posts/${teste.id}`)
+    .then(()=>{console.log("post deletado").setPost(null)})}

@@ -4,7 +4,13 @@ import imagemCard from "../../img/dom-professor-otimizar tempo.jpeg"
 
 
 
-const PostCard = ({titulo, id, autor}) => {
+const PostCard = ({titulo, id, autor, aoDeletar}) => {
+
+    function aoEvento(){
+        aoDeletar(
+            {id: id}
+        )
+    }
 
 
 
@@ -24,8 +30,11 @@ const PostCard = ({titulo, id, autor}) => {
                 <h6>{autor}</h6>
                 <button className={styles.botaoLer}>Ler</button>
         </Link>
-                <button className={styles.botaoLer}>Editar</button>
-                <button className={styles.botaoLer}>Deletar</button>
+
+        <Link to={`/post/formulario/${id}`}>
+        {window.location.pathname == "/post/professor"? <button className={styles.botaoLer}>Editar</button> : ""}
+        </Link>
+                {window.location.pathname == "/post/professor"? <button onClick={aoEvento} className={styles.botaoLer}>Deletar</button> : ""}
             </div>
         
         

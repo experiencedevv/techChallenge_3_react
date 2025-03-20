@@ -30,9 +30,6 @@ const Post = ({listaPost}) => {
             <p>
                 {post.descricao}
             </p>
-            <Link to={`/formulario/${post.id}`}>
-                <button>Editar</button>
-            </Link>
 
             
 
