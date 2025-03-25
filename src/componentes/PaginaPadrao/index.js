@@ -1,23 +1,16 @@
-import { Outlet } from "react-router-dom"
-import Menu from "../Menu"
-
-
+import { Outlet } from "react-router-dom";
+import Menu from "../Menu";
+import styles from "./PaginaPadrao.module.css";
 
 const PaginaPadrao = () => {
-    return(
-        <body>
+  return (
+    <div className={styles.paginaPadrao}>
+      <Menu />
+      <main>
+        <Outlet />
+      </main>
+    </div>
+  );
+};
 
-            <Menu/>
-
-            <Outlet/>
-
-
-
-
-        </body>
-
-    )
-}
-
-
-export default PaginaPadrao
+export default PaginaPadrao;

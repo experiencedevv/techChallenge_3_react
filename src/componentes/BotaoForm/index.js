@@ -1,13 +1,9 @@
+import styles from "./BotaoForm.module.css";
 
+const BotaoForm = ({ children }) => {
+  return (
+    <button className={styles.button}>{children}</button>
+  );
+};
 
-
-const BotaoForm = ({children})=> {
-
-
-    return(
-        <button>{children}</button>
-    )
-}
-
-
-export default BotaoForm
+export default BotaoForm;

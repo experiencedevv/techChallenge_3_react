@@ -43,7 +43,7 @@ const Login = ({aoNovoLogin}) => {
             login: login,
             senha: senha
         })
-        window.location.pathname = "/login"
+        window.location.pathname = "/"
 
 
     }
