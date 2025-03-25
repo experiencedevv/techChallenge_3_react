@@ -1,7 +1,30 @@
+# Node modules - nunca enviar para o Docker (será instalado no container)
 node_modules
+
+# Pastas de build locais
 build
+dist
+
+# Configurações do sistema local
+.DS_Store
+
+# Git
 .git
 .gitignore
-Dockerfile
-docker-compose.yml
+
+# Logs
 npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Editor configs
+*.swp
+.vscode
+.idea
+
+# Testes ou mocks (se não for necessário na imagem)
+__tests__/
+coverage/
+
+node_modules
+
